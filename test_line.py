@@ -1467,6 +1467,8 @@ def test_mcp_drops_confirmed_when_unattended(monkeypatch):
         return R()
 
     monkeypatch.setattr(mcp_server.urllib.request, "urlopen", fake_urlopen)
+    # Without psutil (or under `claude -p`) the adapter fails safe to unattended; this test covers the env switch.
+    monkeypatch.setattr(mcp_server, "_PRINT_MODE", False)
     monkeypatch.delenv("HANDS_UNATTENDED", raising=False)
     out = mcp_server.line_send("abc", True)
     assert seen["args"]["confirmed"] is True and "approved THIS message" in out

@@ -2,6 +2,8 @@
 Pure parts (fuzzy match, coordinate mapping, region clip) + the confirm gate on OCR ids + one engine smoke test on a
 rendered image. Read-only: nothing here clicks or types."""
 import sys
+
+import pytest
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -77,7 +79,8 @@ def test_ocr_id_gate_and_lookup():
 
 
 def test_engine_reads_rendered_thai_english():
-    import numpy as np
+    np = pytest.importorskip("numpy")
+    pytest.importorskip("rapidocr")  # optional OCR extra (see README)
     from PIL import Image, ImageDraw, ImageFont
     import ocr
     f = ImageFont.truetype(r"C:\Windows\Fonts\tahoma.ttf", 22)

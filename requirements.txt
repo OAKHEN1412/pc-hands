@@ -1,3 +1,4 @@
 # Everything: the core deps (requirements-line.txt) plus the MCP adapter. OCR is optional (see README).
 -r requirements-line.txt
-mcp>=1.0
+mcp>=1.0,<2
+psutil>=5.9   # mcp_server.py detects `claude -p` (unattended) from the parent process

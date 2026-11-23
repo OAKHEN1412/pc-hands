@@ -1,0 +1,7 @@
+.pin
+bot-mode.json
+shots/
+__pycache__/
+.pytest_cache/
+.venv/
+*.log

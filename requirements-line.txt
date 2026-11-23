@@ -1,0 +1,6 @@
+# Third-party packages imported by line_cli.py (line.py, tools.py, winio.py, uia.py; Windows only).
+# Versions are the ones the CLI was developed and tested with (Python 3.12). pywinauto also pulls in six.
+pillow==12.2.0
+pywin32==312
+pywinauto==0.6.9
+comtypes==1.4.16
